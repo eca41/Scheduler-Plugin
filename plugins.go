@@ -63,9 +63,6 @@ func (p *MyK3SPlugin) Filter(ctx context.Context, state *framework.CycleState, p
 	availableMemory := totalNodeMemory.DeepCopy()
 	availableMemory.Sub(requestedMemory)
 
-	fmt.Printf("Available resources on node ", nodeInfo.Node().Name, " : CPU: ", availableCPU.String() , "Memory: ", availableMemory.String())
-		
-
 	//calculate allocated CPU for running all containers in current pod
 	var podCPU resource.Quantity
 	for _, container := range pod.Spec.Containers {
