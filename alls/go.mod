@@ -5,7 +5,7 @@ go 1.23.0
 toolchain go1.24.1
 
 require (
-	github.com/eca41/Scheduler-Plugin v0.0.0-20250304201529-ed1a99685842
+	github.com/eca41/Scheduler-Plugin v0.0.0-20250304200345-439778995dc4
 	k8s.io/component-base v0.32.2
 	k8s.io/kubernetes v1.32.2
 )
