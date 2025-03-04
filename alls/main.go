@@ -8,7 +8,7 @@ import (
 	//"k8s.io/apimachinery/pkg/runtime"
 	//"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/kubernetes/cmd/kube-scheduler/app"
-	"https://github.com/eca41/Scheduler-Plugin/tree/main"
+	"github.com/eca41/Scheduler-Plugin"
 	//runtime "k8s.io/kubernetes/pkg/scheduler/framework/runtime"
 )
 
