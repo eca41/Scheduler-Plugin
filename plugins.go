@@ -134,6 +134,7 @@ func (p *MyK3SPlugin) Score(ctx context.Context, state *framework.CycleState, po
 		if strings.HasPrefix(label, "ping-") {
 
 			distanceToNode, err := strconv.Atoi(value)
+			fmt.Println("DISTANCE: ", distanceToNode)
 			if err != nil {
 				fmt.Println("Error while converting.")
 			}
