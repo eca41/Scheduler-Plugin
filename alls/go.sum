@@ -666,8 +666,6 @@ github.com/docker/distribution v2.8.3+incompatible/go.mod h1:J2gT2udsDAN96Uj4Kfc
 github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815/go.mod h1:WwZ+bS3ebgob9U8Nd0kOddGdZWjyMGR8Wziv+TBNwSE=
 github.com/dustin/go-humanize v1.0.0 h1:VSnTsYCnlFHaM2/igO1h6X3HA71jcobQuxemgkq4zYo=
 github.com/dustin/go-humanize v1.0.0/go.mod h1:HtrtbFcZ19U5GC7JDqmcUSB87Iq5E25KnS6fMYU6eOk=
-github.com/eca41/Scheduler-Plugin v0.0.0-20250304200345-439778995dc4 h1:CzPuFQpzqWyZO1GTYQy9D5blNDPC4DLFY7k2I03qWs8=
-github.com/eca41/Scheduler-Plugin v0.0.0-20250304200345-439778995dc4/go.mod h1:EgAWA5RoNCN9oKsp0PYWcQqyBz/cSA66xkVcZiw3g78=
 github.com/emicklei/go-restful/v3 v3.12.2 h1:DhwDP0vY3k8ZzE0RunuJy8GhNpPL6zqLkDf9B/a0/xU=
 github.com/emicklei/go-restful/v3 v3.12.2/go.mod h1:6n3XBCmQQb25CM2LCACGz8ukIrRry+4bhvbpWn3mrbc=
 github.com/envoyproxy/go-control-plane v0.9.0/go.mod h1:YTl/9mNaCwkRvm6d1a2C3ymFceY/DCBVvsKhRF0iEA4=

@@ -5,7 +5,7 @@ go 1.23.0
 toolchain go1.24.1
 
 require (
-	github.com/eca41/Scheduler-Plugin v0.0.0-20250304200345-439778995dc4
+	github.com/mariopetricevic/plugins v0.0.0-20230613222913-8b1801f19626
 	k8s.io/component-base v0.32.2
 	k8s.io/kubernetes v1.32.2
 )
@@ -51,7 +51,6 @@ require (
 	github.com/klauspost/compress v1.18.0 // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect
 	github.com/mailru/easyjson v0.9.0 // indirect
-	github.com/mariopetricevic/plugins v0.0.0-20230613222913-8b1801f19626 // indirect
 	github.com/moby/sys/mountinfo v0.7.2 // indirect
 	github.com/moby/term v0.5.2 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
@@ -100,7 +99,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	k8s.io/api v0.32.2 // indirect
 	k8s.io/apimachinery v0.32.2 // indirect
-	k8s.io/apiserver v0.32.2 // indirect
+	k8s.io/apiserver v0.26.3 // indirect
 	k8s.io/client-go v1.5.2 // indirect
 	k8s.io/cloud-provider v0.32.2 // indirect
 	k8s.io/component-helpers v0.32.2 // indirect
