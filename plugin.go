@@ -133,5 +133,6 @@ func (p *myRandomDistancePlugin) NormalizeScore(_ context.Context, _ *framework.
 }
 
 func New(obj runtime.Object, handle framework.Handle) (framework.Plugin, error) {
+	fmt.Println("✅ Registering plugin:", Name)
 	return &myRandomDistancePlugin{handle: handle}, nil
 }
