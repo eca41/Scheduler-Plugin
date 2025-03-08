@@ -12,7 +12,7 @@ import (
 	"k8s.io/kubernetes/pkg/scheduler/framework"
 )
 
-type MyK3SPlugin struct {
+type myRandomDistancePlugin struct {
 	handle framework.Handle
 }
 
@@ -23,17 +23,17 @@ type NodeNameDistance struct {
 
 const (
 	// Name : name of plugin used in the plugin registry and configurations.
-	Name = "MyK3SPlugin"
+	Name = "myRandomDistancePlugin"
 )
 
-var _ = framework.FilterPlugin(&MyK3SPlugin{})
-var _ = framework.ScorePlugin(&MyK3SPlugin{})
+var _ = framework.FilterPlugin(&myRandomDistancePlugin{})
+var _ = framework.ScorePlugin(&myRandomDistancePlugin{})
 
-func (p *MyK3SPlugin) Name() string {
+func (p *myRandomDistancePlugin) Name() string {
 	return Name
 }
 
-func (p *MyK3SPlugin) Filter(ctx context.Context, state *framework.CycleState, pod *v1.Pod, nodeInfo *framework.NodeInfo) *framework.Status {
+func (p *myRandomDistancePlugin) Filter(ctx context.Context, state *framework.CycleState, pod *v1.Pod, nodeInfo *framework.NodeInfo) *framework.Status {
 	// Filter nodes that can run the pod. If node cannot run the pod
 	// method returns framework status Unschedulable.
 	// Additionaly, method filters nodes that already have pod running
@@ -92,17 +92,17 @@ func (p *MyK3SPlugin) Filter(ctx context.Context, state *framework.CycleState, p
 	}
 }
 
-func (p *MyK3SPlugin) Score(ctx context.Context, state *framework.CycleState, pod *v1.Pod, nodeName string) (int64, *framework.Status) {
+func (p *myRandomDistancePlugin) Score(ctx context.Context, state *framework.CycleState, pod *v1.Pod, nodeName string) (int64, *framework.Status) {
 	rand.Seed(time.Now().UnixNano())
 	score := rand.Int63n(101) // Random score between 0 and 100
 	return score, nil
 }
 
-func (p *MyK3SPlugin) ScoreExtensions() framework.ScoreExtensions {
+func (p *myRandomDistancePlugin) ScoreExtensions() framework.ScoreExtensions {
 	return p
 }
 
-func (p *MyK3SPlugin) NormalizeScore(_ context.Context, _ *framework.CycleState, pod *v1.Pod, scores framework.NodeScoreList) *framework.Status {
+func (p *myRandomDistancePlugin) NormalizeScore(_ context.Context, _ *framework.CycleState, pod *v1.Pod, scores framework.NodeScoreList) *framework.Status {
 	fmt.Println("----------NORMALIZE  SCORE -------------------------------------")
 	var (
 		highest int64 = 0
@@ -133,5 +133,5 @@ func (p *MyK3SPlugin) NormalizeScore(_ context.Context, _ *framework.CycleState,
 }
 
 func New(obj runtime.Object, handle framework.Handle) (framework.Plugin, error) {
-	return &MyK3SPlugin{handle: handle}, nil
+	return &myRandomDistancePlugin{handle: handle}, nil
 }
