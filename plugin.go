@@ -98,7 +98,6 @@ func (p *MyK3SPlugin) Filter(ctx context.Context, state *framework.CycleState, p
 func (p *MyK3SPlugin) Score(ctx context.Context, state *framework.CycleState, pod *v1.Pod, nodeName string) (int64, *framework.Status) {
 
 	fmt.Println("--------------------SCORE-------------------------------------")
-	fmt.Println("Zzzzzzzz	zzzzzzzzzzzzzzzzzzz")
 
 	if p.handle == nil {
 		fmt.Println("Handle is null!")
