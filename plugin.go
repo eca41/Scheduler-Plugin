@@ -13,7 +13,7 @@ import (
 	"k8s.io/kubernetes/pkg/scheduler/framework"
 )
 
-type MyK3SPlugin struct {
+type eca41Plugin struct {
 	handle framework.Handle
 }
 
@@ -24,17 +24,17 @@ type NodeNameDistance struct {
 
 const (
 	// Name : name of plugin used in the plugin registry and configurations.
-	Name = "MyK3SPlugin"
+	Name = "eca41Plugin"
 )
 
-var _ = framework.FilterPlugin(&MyK3SPlugin{})
-var _ = framework.ScorePlugin(&MyK3SPlugin{})
+var _ = framework.FilterPlugin(&eca41Plugin{})
+var _ = framework.ScorePlugin(&eca41Plugin{})
 
-func (p *MyK3SPlugin) Name() string {
+func (p *eca41Plugin) Name() string {
 	return Name
 }
 
-func (p *MyK3SPlugin) Filter(ctx context.Context, state *framework.CycleState, pod *v1.Pod, nodeInfo *framework.NodeInfo) *framework.Status {
+func (p *eca41Plugin) Filter(ctx context.Context, state *framework.CycleState, pod *v1.Pod, nodeInfo *framework.NodeInfo) *framework.Status {
 	// Filter nodes that can run the pod. If node cannot run the pod
 	// method returns framework status Unschedulable.
 	// Additionaly, method filters nodes that already have pod running
@@ -95,7 +95,7 @@ func (p *MyK3SPlugin) Filter(ctx context.Context, state *framework.CycleState, p
 	}
 }
 
-func (p *MyK3SPlugin) Score(ctx context.Context, state *framework.CycleState, pod *v1.Pod, nodeName string) (int64, *framework.Status) {
+func (p *eca41Plugin) Score(ctx context.Context, state *framework.CycleState, pod *v1.Pod, nodeName string) (int64, *framework.Status) {
 
 	fmt.Println("--------------------SCORE-------------------------------------")
 
@@ -179,11 +179,11 @@ func (p *MyK3SPlugin) Score(ctx context.Context, state *framework.CycleState, po
 	return int64(score), nil
 }
 
-func (p *MyK3SPlugin) ScoreExtensions() framework.ScoreExtensions {
+func (p *eca41Plugin) ScoreExtensions() framework.ScoreExtensions {
 	return p
 }
 
-func (p *MyK3SPlugin) NormalizeScore(_ context.Context, _ *framework.CycleState, pod *v1.Pod, scores framework.NodeScoreList) *framework.Status {
+func (p *eca41Plugin) NormalizeScore(_ context.Context, _ *framework.CycleState, pod *v1.Pod, scores framework.NodeScoreList) *framework.Status {
 	fmt.Println("----------NORMALIZE  SCORE -------------------------------------")
 	var (
 		highest int64 = 0
@@ -214,5 +214,5 @@ func (p *MyK3SPlugin) NormalizeScore(_ context.Context, _ *framework.CycleState,
 }
 
 func New(obj runtime.Object, handle framework.Handle) (framework.Plugin, error) {
-	return &MyK3SPlugin{handle: handle}, nil
+	return &eca41Plugin{handle: handle}, nil
 }
